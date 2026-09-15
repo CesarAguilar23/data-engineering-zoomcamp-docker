@@ -16,10 +16,9 @@ COPY pyproject.toml .python-version uv.lock ./
 #RUN uv sync --locked
 # Change so uv doesnt try to install pipeline.py.
 RUN uv sync --locked --no-install-project
-
 # Copy pipeline coe 
-COPY ingest_data.py .
+COPY pipeline.py .
 
-ENTRYPOINT ["python","ingest_data.py"]
+ENTRYPOINT ["python","pipeline.py"]
 
 #ENTRYPOINT ["uv","run","python","pipeline.py"]
